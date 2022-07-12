@@ -1,0 +1,116 @@
+﻿@{
+    ViewBag.Title = "Let the encryption begin";
+}
+<h2>@ViewBag.Title</h2>
+<h4>@ViewBag.Message</h4>
+
+<div class="form-horizontal">
+    <hr />
+
+
+    <h2>Select a file to encrypt:</h2>
+
+    <div class="input-group mb-3">
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile02">
+        </div>
+    </div>
+    <div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <button class="btn btn-default type="button">Upload</button>
+        </div>
+
+        <table class="table align-middle">
+
+            <thead>
+                <tr>
+                    <th scope="col">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                        </div>
+                    </th>
+                    <th scope="col">File Name</th>
+                    <th scope="col">File Type</th>
+                    <th scope="col">View Changes</th>
+                    <th scope="col">Remove</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                        </div>
+                    </th>
+                    <td>Sunshine</td>
+                    <td>MP3</td>
+                    <td>
+                        <a href="#" class="btn btn-warning a-btn-slide-text">
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                            <span><strong>Edit</strong></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#" class="btn btn-danger a-btn-slide-text">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            <span><strong>Delete</strong></span>
+                        </a>
+                     </td>
+                    </tr>
+                <tr>
+                    <th scope="row">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                        </div>
+                    </th>
+                    <td>BeachWave</td>
+                    <td>OGG</td>
+                    <td>
+                        <a href="#" class="btn btn-warning a-btn-slide-text">
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                            <span><strong>Edit</strong></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#" class="btn btn-danger a-btn-slide-text">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            <span><strong>Delete</strong></span>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                        </div>
+                    </th>
+                    <td>Bird</td>
+                    <td>MP4</td>
+                    <td>
+                        <a href="#" class="btn btn-warning a-btn-slide-text">
+                            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                            <span><strong>Edit</strong></span>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="#" class="btn btn-danger a-btn-slide-text">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                            <span><strong>Delete</strong></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <button type="button" class="btn btn-primary">
+            Encrypt selected files
+
+        </button>
+
+
+
+        <ul class="pager">
+            <li><a href="https://localhost:44334/">Previous</a></li>
+            <li><a href="https://localhost:44334/Home/Decrypt">Next</a></li>
+        </ul>
+    </div>

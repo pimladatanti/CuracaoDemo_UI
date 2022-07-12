@@ -1,0 +1,109 @@
+﻿@model IList<WavFile>
+@using Demo2.Models
+
+@helper Truncate(string input, int length)
+{
+     if (input.Length <= length) {
+@input
+     } else {
+@input.Substring(0, length)<text>...</text>
+     }
+}
+
+@{ ViewBag.Title = "Home Page";
+
+}
+
+
+<div class="jumbotron-n">
+    <h1>Welcome </h1>
+</div>
+
+
+<div class="form-horizontal">
+    <hr />
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+{
+<div style="max-height: 300px; overflow: auto; width: 100%; overflow:auto;">
+    <table class="table align-middle">
+        <thead>
+            <tr>
+                
+                <th scope="col">Select</th>
+                <th scope="col">File Directory</th>
+                <th scope="col">File Name</th>
+                <th scope="col">Status</th>
+                <th scope="col">Play File</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @for (var i = 0; i < Model.Count; i++)
+            {
+            <tr>
+                <div id="checkboxes">
+                <th scope="row">
+                    @Html.CheckBoxFor(modelItem => Model[i].isChecked)
+                    
+                </th>
+                </div>
+                <td>
+                    @Html.HiddenFor(modelItem => Model[i].wavId)
+                    @Html.DisplayFor(modelItem => Model[i].directory)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].displayName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[i].encryptionStatus)
+                </td>
+                <td>
+                    <audio controls="controls" height="100" width="100">
+                        <source src="@Model[i].serverPath" type="audio/wav" />
+                        <p>Your browser does not support the audio element.</p>
+                    </audio>
+                </td>
+            </tr>
+            }
+
+        </tbody>
+
+    </table>
+</div>
+
+<input type="submit" name="submitButton" value="Encrypt" class="btn btn-primary btn active" />
+<input type="submit" name="submitButton" value="Decrypt" class="btn btn-secondary btn active" />
+<input type="submit" name="submitButton" value="Delete" class="btn btn-danger a-btn-slide-text" />
+
+}
+    @section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+  
+    <script type="text/javascript">
+  
+        function toggleChecked(status) {
+            $("#checkboxes input").each(function () {
+                // Set the checked status of each to match the 
+                // checked status of the check all checkbox:
+                $(this).prop("checked", status);
+            });
+        }
+  
+        $(document).ready(function () {
+  
+            //Set the default value of the global checkbox to true:
+            $("#checkall").prop('checked', true);
+  
+            // Attach the call to toggleChecked to the
+            // click event of the global checkbox:
+            $("#checkall").click(function () {
+                var status = $("#checkall").prop('checked');
+                toggleChecked(status);
+            });
+        });
+    </script>
+    }
+
+
+ 
